@@ -1,35 +1,12 @@
 //create var to hold our characters
 
-var specialCharacters = ["~", "`", ];
+var specialCharacters = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 
-var numericalValues = ["1234567890".split()];
+var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
-var lowerCaseLetters = ["abcdefghijklmnopqrstuvwxyz".split()];
+var lowerCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-//create a function to prompt user for password options
-
-function getPasswordOptions() {
-  var length = parseInt(
-    prompt("How many character would you like your password to contain?")
-  );
-}
-
-if (isNaN(length) === true) {
-  alert("Password length must be provided with a number");
-  return;
-}
-
-//conditional statement to check if password length is true
-
-if ((length < 8) || (length > 128)) {
-  alert("Password character not in range please choose a number between 8 and 128")
-  return;
-}
-
-//asking the user what characters they want (special numbers, lower or upper)
-
-
-
+var upperCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
