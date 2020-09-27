@@ -1,0 +1,10 @@
+declare variables for all characters.
+
+ask user how many characters and what kind of characters they want to you
+make sure its inbetween 8 and 128
+make sure at least one of the character variables is being used
+save those inputs in variables
+
+loop through the variables for as many times as the user chooses for the input of the length of characters
+randomize those characters to create a password to display
+
