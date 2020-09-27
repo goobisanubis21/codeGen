@@ -10,40 +10,17 @@ var upperCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "
 
 
 
-//object to store users input
-var passwordOptions = {
-  length: length,
-  hasSpecialCharacters: hasSpecialCharacters,
-  hasNumbers: hasNumbers,
-  hasLowerCaseLetters: hasLowerCaseLetters,
-  hasUpperCaseLetters: hasUpperCaseLetters
-};
+
 
 //prompt user to see how many characters they would like in there password
 var length = parseInt(
   prompt("Between 8 and 128, how many characters would you like your password to contain?")
 );
 
-//password must not be less than 8 characters
-while (length < 8) {
+//password must not be less than 8 characters or greater than 128 characters or a letter
+while ((length < 8) || (length > 128) || (isNaN(length) === true)) {
   alert("Password must contain 8 or more characters");
-  var length = parseInt(
-    prompt("Between 8 and 128, how many characters would you like your password to contain?")
-  );
-}
-
-//password must not be greater than 128 characters
-while (length > 128) {
-  alert("Password must contain less than 129 characters");
-  var length = parseInt(
-    prompt("Between 8 and 128, how many characters would you like your password to contain?")
-  );
-}
-
-//length must be a number
-while (isNaN(length) === true) {
-  alert("Password length must be a number");
-  var length = parseInt(
+  length = parseInt(
     prompt("Between 8 and 128, how many characters would you like your password to contain?")
   );
 }
@@ -60,14 +37,20 @@ var hasUpperCaseLetters = confirm("Would you like your password to contain upper
 //password confirms must hold true for at least one of the previous questions
 while ((hasSpecialCharacters === false) && (hasNumbers === false) && (hasLowerCaseLetters === false) && (hasUpperCaseLetters === false)) {
   alert("Password must contain at least one of the following: a special character, a number, a lowercase letter or an uppercase letter.");
-  var hasSpecialCharacters = confirm("Would you like your password to contain special characters?");
+  hasSpecialCharacters = confirm("Would you like your password to contain special characters?");
+  hasNumbers = confirm("Would you like your password to contain numbers?");
+  hasLowerCaseLetters = confirm("Would you like your password to contain lowercase letters?");
+  hasUpperCaseLetters = confirm("Would you like your password to contain uppercase letters?");
+};
 
-  var hasNumbers = confirm("Would you like your password to contain numbers?");
-
-  var hasLowerCaseLetters = confirm("Would you like your password to contain lowercase letters?");
-
-  var hasUpperCaseLetters = confirm("Would you like your password to contain uppercase letters?");
-}
+//object to store users input
+var passwordOptions = {
+  length: length,
+  hasSpecialCharacters: hasSpecialCharacters,
+  hasNumbers: hasNumbers,
+  hasLowerCaseLetters: hasLowerCaseLetters,
+  hasUpperCaseLetters: hasUpperCaseLetters
+};
 
 for (var i = 0; i < length; i++) {
   function generatePassword() {
