@@ -8,9 +8,7 @@ var lowerCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "
 
 var upperCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-
-
-
+var newPassword = "";
 
 //prompt user to see how many characters they would like in there password
 var length = parseInt(
@@ -52,11 +50,11 @@ var passwordOptions = {
   hasUpperCaseLetters: hasUpperCaseLetters
 };
 
-for (var i = 0; i < length; i++) {
-  function generatePassword() {
-    Math.floor(Math.random(specialCharacters));
-  }
-}
+function generatePassword() {
+  for (var i = 0; i < length; i++) {
+    password += (Math.floor(Math.random() * password.length));
+  } return password;
+};
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");

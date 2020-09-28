@@ -1,6 +1,6 @@
 declare variables for all characters.
 
-ask user how many characters and what kind of characters they want to you
+ask user how many characters and what kind of characters they want to use
 make sure its inbetween 8 and 128
 make sure at least one of the character variables is being used
 save those inputs in variables
