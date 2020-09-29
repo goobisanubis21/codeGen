@@ -8,8 +8,10 @@ var allCharacters = {
 
   upperCaseLetters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 };
+//setting a value for a new password to hold all characters equal to an empty string
 var newPassword = "";
 
+//setting a value for the users password equal to an empty string
 var password = "";
 
 //prompt user to see how many characters they would like in there password
@@ -52,6 +54,7 @@ var passwordOptions = {
   hasUpperCaseLetters: hasUpperCaseLetters
 };
 
+//function to check to see which of the comfirms need to be used
 function generateNewPassword() {
   if (passwordOptions.hasSpecialCharacters === true) {
     newPassword += allCharacters.specialCharacters;
@@ -67,11 +70,21 @@ function generateNewPassword() {
   }
   return newPassword;
 };
+
+//calling function to run
 generateNewPassword()
 
+//creating a new function to create the password
 function generatePassword() {
-  for (var i = 0; i < passwordOptions.length; i++) {
-    password += newPassword.charAt(Math.floor(Math.random() * newPassword.length));
+  //disabling generate password button if the passwords text area is displaying a value
+  if (password !== "") {
+    generateBtn.disabled = true;
+  } else {
+    //looping through the users length input
+    for (var i = 0; i < passwordOptions.length; i++) {
+      //setting the password var equal to a randomized character for the number of characters the user has chosen
+      password += newPassword.charAt(Math.floor(Math.random() * newPassword.length));
+    }
   } return password;
 };
 
