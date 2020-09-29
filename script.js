@@ -1,17 +1,14 @@
 //creation of variables to hold our characters
-var allCharactersVars = {
+var allCharacters = {
+  specialCharacters: "~`!@#$%^&*()-:+[{]}|",
 
-  allCharacters : {
+  numbers: "1234567890",
 
-    specialCharacters: "~`!@#$%^&*()-_=+[{]}|",
+  lowerCaseLetters: "abcdefghijklmnopqrstuvwxyz",
 
-    numbers: "1234567890",
-
-    lowerCaseLetters: "abcdefghijklmnopqrstuvwxyz",
-
-    upperCaseLetters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  }
+  upperCaseLetters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 };
+var newPassword = "";
 
 var password = "";
 
@@ -55,12 +52,26 @@ var passwordOptions = {
   hasUpperCaseLetters: hasUpperCaseLetters
 };
 
-function generatePassword() {
-  for (var i = 0; i < length; i++) {
-    if (passwordOptions.hasSpecialCharacters === true) {
-      password += (Math.floor(Math.random() * allCharacters.specialCharacters[i]));
-    }
+function generateNewPassword() {
+  if (passwordOptions.hasSpecialCharacters === true) {
+    newPassword += allCharacters.specialCharacters;
+  }
+  if (passwordOptions.hasNumbers === true) {
+    newPassword += allCharacters.numbers;
+  }
+  if (passwordOptions.hasLowerCaseLetters === true) {
+    newPassword += allCharacters.lowerCaseLetters;
+  }
+  if (passwordOptions.hasUpperCaseLetters === true) {
+    newPassword += allCharacters.upperCaseLetters;
+  }
+  return newPassword;
+};
+generateNewPassword()
 
+function generatePassword() {
+  for (var i = 0; i < passwordOptions.length; i++) {
+    password += newPassword.charAt(Math.floor(Math.random() * newPassword.length));
   } return password;
 };
 
