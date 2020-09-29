@@ -1,14 +1,19 @@
 //creation of variables to hold our characters
+var allCharactersVars = {
 
-var specialCharacters = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{", "]", "}", "|"];
+  allCharacters : {
 
-var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+    specialCharacters: "~`!@#$%^&*()-_=+[{]}|",
 
-var lowerCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    numbers: "1234567890",
 
-var upperCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    lowerCaseLetters: "abcdefghijklmnopqrstuvwxyz",
 
-var newPassword = "";
+    upperCaseLetters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  }
+};
+
+var password = "";
 
 //prompt user to see how many characters they would like in there password
 var length = parseInt(
@@ -52,7 +57,10 @@ var passwordOptions = {
 
 function generatePassword() {
   for (var i = 0; i < length; i++) {
-    password += (Math.floor(Math.random() * password.length));
+    if (passwordOptions.hasSpecialCharacters === true) {
+      password += (Math.floor(Math.random() * allCharacters.specialCharacters[i]));
+    }
+
   } return password;
 };
 
